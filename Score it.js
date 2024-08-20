@@ -54,6 +54,8 @@ ggggggggggg
 ggggggggggg
 gggggpggggg
 uuuuuuuuuuu`
+const playerobj = getFirst(player);
+const playerTile = getTile(player.x, player.y);
 
 setLegend(
   [ player, bitmap`
@@ -142,22 +144,22 @@ DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD` ],
   [ obstacle, bitmap`
-DDDDDDDDDDDDDDDD
-DDDDDDDD0DDDDDDD
-DDDDDDD000DDDDDD
-DDDDDD00D00DDDDD
-DDDDD00DDD00DDDD
-DDDDD0DDCDD0DDDD
-DDDD00DDDDD00DDD
-DDD00DDDCDDD00DD
-DDD0DDDDCDDDD0DD
-DD00DDDDCDDDD00D
-DD0DDDDDCDDDDD0D
-DD0DDDDDDDDDDD0D
-DD0000000000000D
-DDDDDDDDDDDDDDDD
-DDDDDDDDDDDDDDDD
-DDDDDDDDDDDDDDDD` ],
+DDDDDDD0DDDDDDDD
+DDDDDDD0DDDDDDDD
+DDDDDD000DDDDDDD
+DDDDD00200DDDDDD
+DDDDD02220DDDDDD
+DDDD0022200DDDDD
+DDDD0222220DDDDD
+DDD002232200DDDD
+DDD022222220DDDD
+DD00222322200DDD
+DD02222322220DDD
+D0022223222200DD
+D0222222222220DD
+D0222222222220DD
+011111116666660D
+000000000000000D` ],
 )
 
 setSolids([player,goal_u,goal_l,goal_r,obstacle])
@@ -167,7 +169,7 @@ const levels = [
   map`
 ggggggggggg
 gggglurgggg
-ggggggggggg
+gggggoggggg
 ggggggggggg
 ggggggggggg
 ggggggggggg
@@ -186,16 +188,35 @@ setPushables({
   [ player ]: []
 })
 
+function checkPlayerCollision(obj){
+  if (getFirst(player).x == getFirst(obj).x && getFirst(player).y == (getFirst(obj).y+1)) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
 let movcon = 1
 if(movcon == 1){
   let turner = 0;
-  setInterval(() => {
+  const vainterval = setInterval(() => {
     if(getFirst(player).x == 0){
       turner = 1;
     }else if(getFirst(player).x == 10){turner = 0;}
     if(turner == 1){getFirst(player).x +=1*movcon;}
     else{getFirst(player).x -=1*movcon;}
     addSprite(5,7,green);
+    if(movcon == 0){
+      if(checkPlayerCollision(obstacle) == 1)
+      {
+        console.log("nah you missed")
+        clearInterval(vainterval)
+      }
+      if(checkPlayerCollision(goal_u) == 1 || checkPlayerCollision(goal_l) == 1 || checkPlayerCollision(goal_r) == 1){
+        console.log("GOOOOOOAAAALL");
+        clearInterval(vainterval)
+      }
+    }
   },500)
 }
 
