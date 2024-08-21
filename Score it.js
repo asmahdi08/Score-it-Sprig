@@ -17,7 +17,7 @@ const obstacle = "o"
 const level1 = map`
 ggggggggggg
 gggglurgggg
-ggggggggggg
+ggggggogggg
 ggggggggggg
 ggggggggggg
 ggggggggggg
@@ -27,7 +27,7 @@ uuuuuuuuuuu`
 const level2 = map`
 ggggggggggg
 gggglurgggg
-ggggogggggg
+gggggoogggg
 ggggggggggg
 ggggggggggg
 ggggggggggg
@@ -37,8 +37,8 @@ uuuuuuuuuuu`
 const level3 = map`
 ggggggggggg
 gggglurgggg
-ggggggggggg
 gggggoggggg
+ggggggggggg
 ggggggggggg
 ggggggggggg
 ggggggggggg
@@ -46,51 +46,101 @@ gggggpggggg
 uuuuuuuuuuu`
 const level4 = map`
 ggggggggggg
-gggglurgggg
+ggluuuuurgg
+ggogooooggg
 ggggggggggg
+ggggggggggg
+ggggggggggg
+ggggggggggg
+gggggpggggg
+uuuuuuuuuuu`
+const level5 = map`
+ggggggggggg
+gggglurgggg
 gggggoogggg
+ggggggggggg
+ggggggggggg
+ggggggggggg
+ggggggggggg
+gggggpggggg
+uuuuuuuuuuu`
+const level6 = map`
+ggggggggggg
+gggglurgggg
+gggggoggggg
+ggggggggggg
 ggggggggggg
 ggggggggggg
 ggggggggggg
 gggggpggggg
 uuuuuuuuuuu`
 const backgroundTune = tune`
-500: B4~500 + A4~500 + G4~500 + C4^500,
-500: F4~500 + E4~500 + C4^500,
-500: B4~500 + A4~500 + G5/500,
-500: D5~500 + E5~500 + F5~500 + C4^500,
-500: G4~500 + F4~500 + C4^500,
-500: C5~500 + B4~500 + B5-500,
-500: C5~500 + C4^500,
-500: F4~500 + C4^500,
-500: A4~500 + G4~500 + F4~500 + G5/500,
-500: F4~500 + C4^500,
-500: B4~500 + E4~500 + D4~500 + C4^500,
-500: B5-500 + F4~500,
-500: A4~500 + G4~500 + C4^500,
-500: A4~500 + B4~500 + E4~500 + D4~500 + C4^500,
-500: A4~500 + G5/500,
-500: A4~500 + E5~500 + D5~500 + C4^500,
-500: C4^500,
-500: A4~500 + B4~500 + F4~500 + B5-500,
-500: F4~500 + C4^500,
-500: C4^500,
-500: A4~500 + G4~500 + B4~500 + G5/500,
-500: A4~500 + C4^500,
-500: G4~500 + C4^500,
-500: B5-500,
-500: D5~500 + F4~500 + G4~500 + C4^500,
-500: E4~500 + C4^500,
-500: D4~500 + G5/500,
-500: G4~500 + B4~500 + A4~500 + C4^500,
-500: D5~500 + C4^500,
-500: A4~500 + F4~500 + E4~500 + B5-500,
-500: F5~500 + E5~500 + D5~500 + C4^500,
-500: A4~500 + B4~500 + G4~500 + C4^500`
-const playerobj = getFirst(player);
+410.958904109589: B4~410.958904109589 + A4~410.958904109589 + G4~410.958904109589 + C4^410.958904109589,
+410.958904109589: F4~410.958904109589 + E4~410.958904109589 + C4^410.958904109589,
+410.958904109589: B4~410.958904109589 + A4~410.958904109589 + G5/410.958904109589,
+410.958904109589: D5~410.958904109589 + E5~410.958904109589 + F5~410.958904109589 + C4^410.958904109589,
+410.958904109589: G4~410.958904109589 + F4~410.958904109589 + C4^410.958904109589,
+410.958904109589: C5~410.958904109589 + B4~410.958904109589 + B5-410.958904109589,
+410.958904109589: C5~410.958904109589 + C4^410.958904109589,
+410.958904109589: F4~410.958904109589 + C4^410.958904109589,
+410.958904109589: A4~410.958904109589 + G4~410.958904109589 + F4~410.958904109589 + G5/410.958904109589,
+410.958904109589: F4~410.958904109589 + C4^410.958904109589,
+410.958904109589: B4~410.958904109589 + E4~410.958904109589 + D4~410.958904109589 + C4^410.958904109589,
+410.958904109589: B5-410.958904109589 + F4~410.958904109589,
+410.958904109589: A4~410.958904109589 + G4~410.958904109589 + C4^410.958904109589,
+410.958904109589: A4~410.958904109589 + B4~410.958904109589 + E4~410.958904109589 + D4~410.958904109589 + C4^410.958904109589,
+410.958904109589: A4~410.958904109589 + G5/410.958904109589,
+410.958904109589: A4~410.958904109589 + E5~410.958904109589 + D5~410.958904109589 + C4^410.958904109589,
+410.958904109589: C4^410.958904109589,
+410.958904109589: A4~410.958904109589 + B4~410.958904109589 + F4~410.958904109589 + B5-410.958904109589,
+410.958904109589: F4~410.958904109589 + C4^410.958904109589,
+410.958904109589: C4^410.958904109589,
+410.958904109589: A4~410.958904109589 + G4~410.958904109589 + B4~410.958904109589 + G5/410.958904109589,
+410.958904109589: A4~410.958904109589 + C4^410.958904109589,
+410.958904109589: G4~410.958904109589 + C4^410.958904109589,
+410.958904109589: B5-410.958904109589 + B4~410.958904109589 + A4~410.958904109589,
+410.958904109589: D5~410.958904109589 + F4~410.958904109589 + G4~410.958904109589 + C4^410.958904109589,
+410.958904109589: E4~410.958904109589 + C4^410.958904109589,
+410.958904109589: D4~410.958904109589 + G5/410.958904109589,
+410.958904109589: G4~410.958904109589 + B4~410.958904109589 + A4~410.958904109589 + C4^410.958904109589,
+410.958904109589: D5~410.958904109589 + C4^410.958904109589,
+410.958904109589: A4~410.958904109589 + F4~410.958904109589 + E4~410.958904109589 + B5-410.958904109589,
+410.958904109589: F5~410.958904109589 + E5~410.958904109589 + D5~410.958904109589 + C4^410.958904109589,
+410.958904109589: A4~410.958904109589 + B4~410.958904109589 + G4~410.958904109589 + C4^410.958904109589`
+const goalTune = tune`
+94.9367088607595: C4/94.9367088607595 + G4/94.9367088607595 + D5-94.9367088607595,
+94.9367088607595: D4/94.9367088607595 + A4/94.9367088607595 + E5-94.9367088607595,
+94.9367088607595: E4/94.9367088607595 + B4/94.9367088607595 + F5-94.9367088607595,
+94.9367088607595: F4/94.9367088607595 + C5/94.9367088607595 + G5-94.9367088607595,
+94.9367088607595: G4/94.9367088607595 + D5/94.9367088607595 + A5-94.9367088607595,
+94.9367088607595: A4/94.9367088607595 + E5/94.9367088607595 + B5-94.9367088607595,
+94.9367088607595: B4/94.9367088607595 + F5/94.9367088607595,
+94.9367088607595: G5/94.9367088607595 + C5/94.9367088607595,
+94.9367088607595: F5/94.9367088607595 + B4/94.9367088607595,
+94.9367088607595: E5/94.9367088607595 + A4/94.9367088607595 + B5-94.9367088607595,
+94.9367088607595: D5/94.9367088607595 + G4/94.9367088607595 + A5-94.9367088607595,
+94.9367088607595: C5/94.9367088607595 + F4/94.9367088607595 + G5-94.9367088607595,
+94.9367088607595: B4/94.9367088607595 + E4/94.9367088607595 + F5-94.9367088607595,
+94.9367088607595: A4/94.9367088607595 + D4/94.9367088607595 + E5-94.9367088607595,
+94.9367088607595: G4/94.9367088607595 + C4/94.9367088607595 + D5-94.9367088607595,
+94.9367088607595: C5-94.9367088607595,
+1518.987341772152`
+const loseTune = tune`
+153.0612244897959: E5^153.0612244897959,
+153.0612244897959: D5~153.0612244897959,
+153.0612244897959: C5^153.0612244897959,
+153.0612244897959: B4~153.0612244897959,
+153.0612244897959: G4^153.0612244897959,
+153.0612244897959: F4~153.0612244897959,
+153.0612244897959: E4^153.0612244897959,
+153.0612244897959: D4~153.0612244897959,
+153.0612244897959: C4^153.0612244897959,
+3520.408163265306`
+
+const playback = playTune(backgroundTune, Infinity)
 
 setLegend(
-  [ player, bitmap`
+  [player, bitmap`
 DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD
@@ -106,8 +156,8 @@ DDDD00022000DDDD
 DDDDDD0000DDDDDD
 DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD
-DDDDDDDDDDDDDDDD` ],
-  [ goal_u, bitmap`
+DDDDDDDDDDDDDDDD`],
+  [goal_u, bitmap`
 0000000000000000
 DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD
@@ -123,8 +173,8 @@ DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD
-DDDDDDDDDDDDDDDD` ],
-  [ goal_l, bitmap`
+DDDDDDDDDDDDDDDD`],
+  [goal_l, bitmap`
 DDDD000000000000
 DD00DDDDDDDDDDDD
 D0DDDDDDDDDDDDDD
@@ -140,8 +190,8 @@ D0DDDDDDDDDDDDDD
 0DDDDDDDDDDDDDDD
 0DDDDDDDDDDDDDDD
 0DDDDDDDDDDDDDDD
-0DDDDDDDDDDDDDDD` ],
-  [ goal_r, bitmap`
+0DDDDDDDDDDDDDDD`],
+  [goal_r, bitmap`
 000000000000DDDD
 DDDDDDDDDDDD00DD
 DDDDDDDDDDDDDD0D
@@ -157,8 +207,8 @@ DDDDDDDDDDDDDDD0
 DDDDDDDDDDDDDDD0
 DDDDDDDDDDDDDDD0
 DDDDDDDDDDDDDDD0
-DDDDDDDDDDDDDDD0` ],
-  [ green, bitmap`
+DDDDDDDDDDDDDDD0`],
+  [green, bitmap`
 DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD
@@ -174,8 +224,8 @@ DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD
-DDDDDDDDDDDDDDDD` ],
-  [ obstacle, bitmap`
+DDDDDDDDDDDDDDDD`],
+  [obstacle, bitmap`
 DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDD
@@ -191,10 +241,10 @@ DDD099999990DDDD
 DD09999999990DDD
 D0999999999990DD
 011111116666660D
-000000000000000D` ],
+000000000000000D`],
 )
 
-setSolids([player,goal_u,goal_l,goal_r,obstacle])
+setSolids([player, goal_u, goal_l, goal_r, obstacle])
 
 let level = 0
 const levels = [
@@ -212,61 +262,76 @@ uuuuuuuuuuu`,
   level2,
   level3,
   level4,
+  level5,
+  level6,
 ]
 
-setMap(levels[level])
+setMap(levels[1])
 
 setPushables({
-  [ player ]: []
+  [player]: []
 })
 
-function checkPlayerCollision(obj){
-  if (getFirst(player).x == getFirst(obj).x && getFirst(player).y == (getFirst(obj).y+1)) {
+setBackground("g")
+
+let levcon = 1
+let movcon = 1
+
+function checkPlayerCollision(obj) {
+  if (getFirst(player).x == getFirst(obj).x && getFirst(player).y == (getFirst(obj).y + 1)) {
     return 1;
   } else {
     return 0;
   }
 }
-
-let movcon = 1
-if(movcon == 1){
+function changeLevel(levelnum){
+  setMap(levels[levelnum])
+  if(levelnum == 5 || levelnum == 6) {
+    levcon = 2
+    clearInterval(automover)
+  }
+  
+}
+if (movcon == 1) {
   let turner = 0;
   const vainterval = setInterval(() => {
-    if(getFirst(player).x == 0){
+    if (getFirst(player).x == 0) {
       turner = 1;
-    }else if(getFirst(player).x == 10){turner = 0;}
-    if(turner == 1){getFirst(player).x +=1*movcon;}
-    else{getFirst(player).x -=1*movcon;}
-    addSprite(5,7,green);
-    if(movcon == 0){
-      if(checkPlayerCollision(obstacle) == 1)
-      {
+    } else if (getFirst(player).x == 10) { turner = 0; }
+    if (turner == 1) { getFirst(player).x += 1 * movcon*levcon; } else { getFirst(player).x -= 1 * movcon*levcon; }
+    if (movcon == 0) {
+      if (checkPlayerCollision(obstacle) == 1) {
         console.log("nah you missed")
         clearInterval(vainterval)
+        playback.end()
+        playTune(loseTune)
+      } else if (getFirst(player).y == 0) {
+        console.log("nah you missed")
+        clearInterval(vainterval)
+        playback.end()
+        playTune(loseTune)
       }
-      if(checkPlayerCollision(goal_u) == 1 || checkPlayerCollision(goal_l) == 1 || checkPlayerCollision(goal_r) == 1){
+      if (checkPlayerCollision(goal_u) == 1 || checkPlayerCollision(goal_l) == 1 || checkPlayerCollision(goal_r) == 1) {
         console.log("GOOOOOOAAAALL");
         clearInterval(vainterval)
+        playback.end()
+        playTune(goalTune)
+        
       }
     }
-  },500)
+  }, 500)
 }
 
-function mover(){getFirst(player).y -=1;
-                addSprite(5,7,green)};
-let automover;
+function mover() { getFirst(player).y -= 1; }
 let initmover;
 
 onInput("w", () => {
   movcon = 0
-  if(!automover){setInterval(mover,100)};
+  const automover = setInterval(mover, 100)
 })
 
 
 afterInput(() => {
-  if (getFirst(player).y == getFirst(goal_u).y) {
-    clearInterval(automover);
-    automover = undefined;
   }
-  
-})
+
+)
