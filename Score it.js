@@ -13,100 +13,107 @@ const goal_u = "u"
 const goal_l = "l"
 const goal_r = "r"
 const green = "g"
+const black = "b"
 const obstacle = "o"
 const level1 = map`
-ggggggggggg
-gggglurgggg
-ggggggogggg
-ggggggggggg
-ggggggggggg
-ggggggggggg
-ggggggggggg
-gggggpggggg
-uuuuuuuuuuu`
+bbbbbbbbbbbbb
+ggggggggggggg
+ggggglurggggg
+gggggggoggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggpgggggg
+uuuuuuuuuuuuu`
 const level2 = map`
-ggggggggggg
-gggglurgggg
-gggggoogggg
-ggggggggggg
-ggggggggggg
-ggggggggggg
-ggggggggggg
-gggggpggggg
-uuuuuuuuuuu`
+bbbbbbbbbbbbb
+ggggggggggggg
+ggggglurggggg
+ggggggooggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggpgggggg
+uuuuuuuuuuuuu`
 const level3 = map`
-ggggggggggg
-gggglurgggg
-gggggoggggg
-ggggggggggg
-ggggggggggg
-ggggggggggg
-ggggggggggg
-gggggpggggg
-uuuuuuuuuuu`
+bbbbbbbbbbbbb
+ggggggggggggg
+ggggglurggggg
+ggggggogggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggpgggggg
+uuuuuuuuuuuuu`
 const level4 = map`
-ggggggggggg
-ggluuuuurgg
-ggogooooggg
-ggggggggggg
-ggggggggggg
-ggggggggggg
-ggggggggggg
-gggggpggggg
-uuuuuuuuuuu`
+bbbbbbbbbbbbb
+ggggggggggggg
+gggluuuuurggg
+gggogoooogggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggpgggggg
+uuuuuuuuuuuuu`
 const level5 = map`
-ggggggggggg
-gggglurgggg
-gggggoogggg
-ggggggggggg
-ggggggggggg
-ggggggggggg
-ggggggggggg
-gggggpggggg
-uuuuuuuuuuu`
+bbbbbbbbbbbbb
+ggggggggggggg
+ggggglurggggg
+ggggggooggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggpgggggg
+uuuuuuuuuuuuu`
 const level6 = map`
-ggggggggggg
-gggglurgggg
-gggggoggggg
-ggggggggggg
-ggggggggggg
-ggggggggggg
-ggggggggggg
-gggggpggggg
-uuuuuuuuuuu`
+bbbbbbbbbbbbb
+ggggggggggggg
+gggluuuuurggg
+gggogoooogggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggpgggggg
+uuuuuuuuuuuuu`
 const backgroundTune = tune`
-410.958904109589: B4~410.958904109589 + A4~410.958904109589 + G4~410.958904109589 + C4^410.958904109589,
-410.958904109589: F4~410.958904109589 + E4~410.958904109589 + C4^410.958904109589,
+410.958904109589: B4~410.958904109589 + A4~410.958904109589 + G4~410.958904109589 + C4^410.958904109589 + E5^410.958904109589,
+410.958904109589: F4~410.958904109589 + E4~410.958904109589,
 410.958904109589: B4~410.958904109589 + A4~410.958904109589 + G5/410.958904109589,
 410.958904109589: D5~410.958904109589 + E5~410.958904109589 + F5~410.958904109589 + C4^410.958904109589,
 410.958904109589: G4~410.958904109589 + F4~410.958904109589 + C4^410.958904109589,
-410.958904109589: C5~410.958904109589 + B4~410.958904109589 + B5-410.958904109589,
-410.958904109589: C5~410.958904109589 + C4^410.958904109589,
+410.958904109589: C5~410.958904109589 + B4~410.958904109589 + E5^410.958904109589,
+410.958904109589: C5~410.958904109589 + C4^410.958904109589 + E5^410.958904109589,
 410.958904109589: F4~410.958904109589 + C4^410.958904109589,
 410.958904109589: A4~410.958904109589 + G4~410.958904109589 + F4~410.958904109589 + G5/410.958904109589,
 410.958904109589: F4~410.958904109589 + C4^410.958904109589,
 410.958904109589: B4~410.958904109589 + E4~410.958904109589 + D4~410.958904109589 + C4^410.958904109589,
-410.958904109589: B5-410.958904109589 + F4~410.958904109589,
-410.958904109589: A4~410.958904109589 + G4~410.958904109589 + C4^410.958904109589,
+410.958904109589: F4~410.958904109589 + E5^410.958904109589,
+410.958904109589: A4~410.958904109589 + G4~410.958904109589 + C4^410.958904109589 + E5^410.958904109589,
 410.958904109589: A4~410.958904109589 + B4~410.958904109589 + E4~410.958904109589 + D4~410.958904109589 + C4^410.958904109589,
 410.958904109589: A4~410.958904109589 + G5/410.958904109589,
 410.958904109589: A4~410.958904109589 + E5~410.958904109589 + D5~410.958904109589 + C4^410.958904109589,
 410.958904109589: C4^410.958904109589,
-410.958904109589: A4~410.958904109589 + B4~410.958904109589 + F4~410.958904109589 + B5-410.958904109589,
-410.958904109589: F4~410.958904109589 + C4^410.958904109589,
+410.958904109589: A4~410.958904109589 + B4~410.958904109589 + F4~410.958904109589 + E5^410.958904109589,
+410.958904109589: F4~410.958904109589 + C4^410.958904109589 + E5^410.958904109589,
 410.958904109589: C4^410.958904109589,
 410.958904109589: A4~410.958904109589 + G4~410.958904109589 + B4~410.958904109589 + G5/410.958904109589,
 410.958904109589: A4~410.958904109589 + C4^410.958904109589,
 410.958904109589: G4~410.958904109589 + C4^410.958904109589,
-410.958904109589: B5-410.958904109589 + B4~410.958904109589 + A4~410.958904109589,
-410.958904109589: D5~410.958904109589 + F4~410.958904109589 + G4~410.958904109589 + C4^410.958904109589,
+410.958904109589: B4~410.958904109589 + A4~410.958904109589 + E5^410.958904109589,
+410.958904109589: D5~410.958904109589 + F4~410.958904109589 + G4~410.958904109589 + C4^410.958904109589 + E5^410.958904109589,
 410.958904109589: E4~410.958904109589 + C4^410.958904109589,
 410.958904109589: D4~410.958904109589 + G5/410.958904109589,
 410.958904109589: G4~410.958904109589 + B4~410.958904109589 + A4~410.958904109589 + C4^410.958904109589,
-410.958904109589: D5~410.958904109589 + C4^410.958904109589,
-410.958904109589: A4~410.958904109589 + F4~410.958904109589 + E4~410.958904109589 + B5-410.958904109589,
+410.958904109589: D5~410.958904109589 + C4^410.958904109589 + E5^410.958904109589,
+410.958904109589: A4~410.958904109589 + F4~410.958904109589 + E4~410.958904109589 + E5^410.958904109589,
 410.958904109589: F5~410.958904109589 + E5~410.958904109589 + D5~410.958904109589 + C4^410.958904109589,
-410.958904109589: A4~410.958904109589 + B4~410.958904109589 + G4~410.958904109589 + C4^410.958904109589`
+410.958904109589: A4~410.958904109589 + B4~410.958904109589 + G4~410.958904109589 + C4^410.958904109589 + G5/410.958904109589`
 const goalTune = tune`
 94.9367088607595: C4/94.9367088607595 + G4/94.9367088607595 + D5-94.9367088607595,
 94.9367088607595: D4/94.9367088607595 + A4/94.9367088607595 + E5-94.9367088607595,
@@ -136,6 +143,8 @@ const loseTune = tune`
 153.0612244897959: D4~153.0612244897959,
 153.0612244897959: C4^153.0612244897959,
 3520.408163265306`
+let currentmap = 1
+let vainterval
 
 const playback = playTune(backgroundTune, Infinity)
 
@@ -242,21 +251,38 @@ DD09999999990DDD
 D0999999999990DD
 011111116666660D
 000000000000000D`],
+  [black, bitmap`
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000`]
 )
 
-setSolids([player, goal_u, goal_l, goal_r, obstacle])
+setSolids([player, goal_u, goal_l, goal_r, obstacle, black])
 
 let level = 0
 const levels = [
   map`
 ggggggggggg
 gggglurgggg
-gggggoggggg
 ggggggggggg
 ggggggggggg
 ggggggggggg
 ggggggggggg
-gggggpggggg
+ggggggggggg
+ggggggggggg
 uuuuuuuuuuu`,
   level1,
   level2,
@@ -274,8 +300,12 @@ setPushables({
 
 setBackground("g")
 
-let levcon = 1
 let movcon = 1
+let ycon = 0
+let turner = 0
+let movinterval = 400
+
+let levtext = addText(("Lvl: " + currentmap), options = { x:0, y:0, color:color`9` })
 
 function checkPlayerCollision(obj) {
   if (getFirst(player).x == getFirst(obj).x && getFirst(player).y == (getFirst(obj).y + 1)) {
@@ -285,27 +315,34 @@ function checkPlayerCollision(obj) {
   }
 }
 function changeLevel(levelnum){
+  
   setMap(levels[levelnum])
+  ycon = 0
+  movcon =1
+  turner =0
+  currentmap += 1
   if(levelnum == 5 || levelnum == 6) {
-    levcon = 2
-    clearInterval(automover)
+    movinterval = 100
   }
+  vainterval = setInterval(mainfunc,movinterval)
+  clearText(levtext)
+  levtext = addText(("Lvl: " + currentmap), options = { x:0, y:0, color:color`9` })
+  
   
 }
-if (movcon == 1) {
-  let turner = 0;
-  const vainterval = setInterval(() => {
-    if (getFirst(player).x == 0) {
+
+function mainfunc(){
+      if (getFirst(player).x == 0) {
       turner = 1;
     } else if (getFirst(player).x == 10) { turner = 0; }
-    if (turner == 1) { getFirst(player).x += 1 * movcon*levcon; } else { getFirst(player).x -= 1 * movcon*levcon; }
+    if (turner == 1) { getFirst(player).x += 1 * movcon; } else { getFirst(player).x -= 1 * movcon; }
     if (movcon == 0) {
       if (checkPlayerCollision(obstacle) == 1) {
         console.log("nah you missed")
         clearInterval(vainterval)
         playback.end()
         playTune(loseTune)
-      } else if (getFirst(player).y == 0) {
+      } else if (getFirst(player).y == 1) {
         console.log("nah you missed")
         clearInterval(vainterval)
         playback.end()
@@ -313,19 +350,27 @@ if (movcon == 1) {
       }
       if (checkPlayerCollision(goal_u) == 1 || checkPlayerCollision(goal_l) == 1 || checkPlayerCollision(goal_r) == 1) {
         console.log("GOOOOOOAAAALL");
-        clearInterval(vainterval)
-        playback.end()
         playTune(goalTune)
+        clearInterval(vainterval)
+        if(currentmap==6){
+          addText("Game Finished", options = { x:5, y:5, color:color`9` })
+        }else{
+          changeLevel(currentmap + 1)
+        }
         
       }
     }
-  }, 500)
 }
 
-function mover() { getFirst(player).y -= 1; }
+if (movcon == 1) {
+  vainterval = setInterval(mainfunc, movinterval)
+}
+
+function mover() { getFirst(player).y -= 1*ycon; }
 let initmover;
 
 onInput("w", () => {
+  ycon = 1
   movcon = 0
   const automover = setInterval(mover, 100)
 })
