@@ -82,6 +82,39 @@ ggggggggggggg
 ggggggpgggggg
 uuuuuuuuuuuuu`
 const backgroundTune = tune`
+153.0612244897959: B5-153.0612244897959 + C4~153.0612244897959 + F4^153.0612244897959,
+153.0612244897959: G5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: F5-153.0612244897959 + E4/153.0612244897959,
+153.0612244897959: G5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: G5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: E5-153.0612244897959 + E4/153.0612244897959,
+153.0612244897959: D5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: D5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: C5-153.0612244897959 + E4/153.0612244897959,
+153.0612244897959: E5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: D5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: C5-153.0612244897959 + E4/153.0612244897959,
+153.0612244897959: E5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: F5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: G5-153.0612244897959 + E4/153.0612244897959,
+153.0612244897959: F5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: F5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: E5-153.0612244897959 + E4/153.0612244897959,
+153.0612244897959: B4-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: B4-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: C5-153.0612244897959 + E4/153.0612244897959,
+153.0612244897959: A4-153.0612244897959 + G4-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: C5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: A4-153.0612244897959 + E4/153.0612244897959,
+153.0612244897959: E5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: D5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: B4-153.0612244897959 + E4/153.0612244897959,
+153.0612244897959: B4-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: C5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: E5-153.0612244897959 + E4/153.0612244897959,
+153.0612244897959: F5-153.0612244897959 + C4~153.0612244897959,
+153.0612244897959: B5-153.0612244897959 + C4~153.0612244897959 + F4^153.0612244897959`
+const bgTune = tune`
 410.958904109589: B4~410.958904109589 + A4~410.958904109589 + G4~410.958904109589 + C4^410.958904109589 + E5^410.958904109589,
 410.958904109589: F4~410.958904109589 + E4~410.958904109589,
 410.958904109589: B4~410.958904109589 + A4~410.958904109589 + G5/410.958904109589,
@@ -303,9 +336,11 @@ setBackground("g")
 let movcon = 1
 let ycon = 0
 let turner = 0
-let movinterval = 400
+let movinterval = 200
+let FirstInput = 0
+let finished = 0
 
-let levtext = addText(("Lvl: " + currentmap), options = { x:0, y:0, color:color`9` })
+let levtext
 
 function checkPlayerCollision(obj) {
   if (getFirst(player).x == getFirst(obj).x && getFirst(player).y == (getFirst(obj).y + 1)) {
@@ -320,9 +355,10 @@ function changeLevel(levelnum){
   ycon = 0
   movcon =1
   turner =0
-  currentmap += 1
+  if(finished == 1){currentmap = 1}
+  else {currentmap += 1}
   if(levelnum == 5 || levelnum == 6) {
-    movinterval = 100
+    movinterval = 80
   }
   vainterval = setInterval(mainfunc,movinterval)
   clearText(levtext)
@@ -331,10 +367,11 @@ function changeLevel(levelnum){
   
 }
 
+
 function mainfunc(){
       if (getFirst(player).x == 0) {
       turner = 1;
-    } else if (getFirst(player).x == 10) { turner = 0; }
+    } else if (getFirst(player).x == 12) { turner = 0; }
     if (turner == 1) { getFirst(player).x += 1 * movcon; } else { getFirst(player).x -= 1 * movcon; }
     if (movcon == 0) {
       if (checkPlayerCollision(obstacle) == 1) {
@@ -353,7 +390,8 @@ function mainfunc(){
         playTune(goalTune)
         clearInterval(vainterval)
         if(currentmap==6){
-          addText("Game Finished", options = { x:5, y:5, color:color`9` })
+          finishTxt = addText("Game Finished\n\nPress any key\nto go to the\nfirst level", options = { x:4, y:5, color:color`9` })
+          finished =1
         }else{
           changeLevel(currentmap + 1)
         }
@@ -362,21 +400,33 @@ function mainfunc(){
     }
 }
 
-if (movcon == 1) {
-  vainterval = setInterval(mainfunc, movinterval)
-}
+
+introText = addText("Welcome to \n Score It\n\nThere are\n6 Levels\n\nPress any key\nto continue", options = { x:5, y:4, color:color`9` })
 
 function mover() { getFirst(player).y -= 1*ycon; }
 let initmover;
 
 onInput("w", () => {
-  ycon = 1
-  movcon = 0
-  const automover = setInterval(mover, 100)
+  if(FirstInput == 1){
+    ycon = 1
+    movcon = 0
+    const automover = setInterval(mover, 100)}
 })
 
 
+
 afterInput(() => {
+  if(FirstInput == 0){
+    FirstInput = 1
+    clearText(introText)
+    vainterval = setInterval(mainfunc,movinterval)
+    levtext = addText(("Lvl: " + currentmap), options = { x:0, y:0, color:color`9` })
+  }
+  if(finished == 1){
+    clearText(finishTxt)
+    changeLevel(1)
+    finished =0
+  }
   }
 
 )
