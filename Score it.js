@@ -81,6 +81,50 @@ ggggggggggggg
 ggggggggggggg
 ggggggpgggggg
 uuuuuuuuuuuuu`
+const level7 = map`
+bbbbbbbbbbbbb
+ggggggggggggg
+gggluuuuurggg
+gggoooooogggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggpgggggg
+uuuuuuuuuuuuu`
+const level8 = map`
+bbbbbbbbbbbbb
+ggggggggggggg
+ggggggggglurg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggpgggggg
+uuuuuuuuuuuuu`
+const level9 = map`
+bbbbbbbbbbbbb
+ggggggggggggg
+gluuuuuuuuurg
+gogooooooogog
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggpgggggg
+uuuuuuuuuuuuu`
+const level10 = map`
+bbbbbbbbbbbbb
+ggggggggggggg
+ggggggggggggl
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggggggggg
+ggggggpgggggg
+uuuuuuuuuuuuu`
 const backgroundTune = tune`
 153.0612244897959: B5-153.0612244897959 + C4~153.0612244897959 + F4^153.0612244897959,
 153.0612244897959: G5-153.0612244897959 + C4~153.0612244897959,
@@ -114,6 +158,16 @@ const backgroundTune = tune`
 153.0612244897959: E5-153.0612244897959 + E4/153.0612244897959,
 153.0612244897959: F5-153.0612244897959 + C4~153.0612244897959,
 153.0612244897959: B5-153.0612244897959 + C4~153.0612244897959 + F4^153.0612244897959`
+const goalTune = tune`
+130.43478260869566,
+130.43478260869566: A4/130.43478260869566 + G4-130.43478260869566,
+130.43478260869566: B4-130.43478260869566 + C5/130.43478260869566,
+130.43478260869566: D5-130.43478260869566 + E5/130.43478260869566,
+130.43478260869566: F5-130.43478260869566 + G5/130.43478260869566,
+130.43478260869566,
+130.43478260869566: G5-130.43478260869566 + A5/130.43478260869566,
+130.43478260869566: G5-130.43478260869566 + A5/130.43478260869566,
+3130.434782608696`
 const bgTune = tune`
 410.958904109589: B4~410.958904109589 + A4~410.958904109589 + G4~410.958904109589 + C4^410.958904109589 + E5^410.958904109589,
 410.958904109589: F4~410.958904109589 + E4~410.958904109589,
@@ -147,20 +201,20 @@ const bgTune = tune`
 410.958904109589: A4~410.958904109589 + F4~410.958904109589 + E4~410.958904109589 + E5^410.958904109589,
 410.958904109589: F5~410.958904109589 + E5~410.958904109589 + D5~410.958904109589 + C4^410.958904109589,
 410.958904109589: A4~410.958904109589 + B4~410.958904109589 + G4~410.958904109589 + C4^410.958904109589 + G5/410.958904109589`
-const goalTune = tune`
+const winningTune = tune`
 94.9367088607595: C4/94.9367088607595 + G4/94.9367088607595 + D5-94.9367088607595,
 94.9367088607595: D4/94.9367088607595 + A4/94.9367088607595 + E5-94.9367088607595,
-94.9367088607595: E4/94.9367088607595 + B4/94.9367088607595 + F5-94.9367088607595,
+94.9367088607595: E4/94.9367088607595 + B4/94.9367088607595 + F5-94.9367088607595 + C4/94.9367088607595,
 94.9367088607595: F4/94.9367088607595 + C5/94.9367088607595 + G5-94.9367088607595,
-94.9367088607595: G4/94.9367088607595 + D5/94.9367088607595 + A5-94.9367088607595,
-94.9367088607595: A4/94.9367088607595 + E5/94.9367088607595 + B5-94.9367088607595,
-94.9367088607595: B4/94.9367088607595 + F5/94.9367088607595,
-94.9367088607595: G5/94.9367088607595 + C5/94.9367088607595,
-94.9367088607595: F5/94.9367088607595 + B4/94.9367088607595,
-94.9367088607595: E5/94.9367088607595 + A4/94.9367088607595 + B5-94.9367088607595,
-94.9367088607595: D5/94.9367088607595 + G4/94.9367088607595 + A5-94.9367088607595,
+94.9367088607595: G4/94.9367088607595 + D5/94.9367088607595 + A5-94.9367088607595 + C4/94.9367088607595,
+94.9367088607595: A4/94.9367088607595 + E5/94.9367088607595 + B5/94.9367088607595,
+94.9367088607595: B4/94.9367088607595 + F5/94.9367088607595 + B5-94.9367088607595 + C4/94.9367088607595,
+94.9367088607595: G5/94.9367088607595 + C5/94.9367088607595 + B5/94.9367088607595,
+94.9367088607595: F5/94.9367088607595 + B4/94.9367088607595 + B5-94.9367088607595 + C4/94.9367088607595,
+94.9367088607595: E5/94.9367088607595 + A4/94.9367088607595 + B5/94.9367088607595,
+94.9367088607595: D5/94.9367088607595 + G4/94.9367088607595 + A5-94.9367088607595 + C4/94.9367088607595,
 94.9367088607595: C5/94.9367088607595 + F4/94.9367088607595 + G5-94.9367088607595,
-94.9367088607595: B4/94.9367088607595 + E4/94.9367088607595 + F5-94.9367088607595,
+94.9367088607595: B4/94.9367088607595 + E4/94.9367088607595 + F5-94.9367088607595 + C4/94.9367088607595,
 94.9367088607595: A4/94.9367088607595 + D4/94.9367088607595 + E5-94.9367088607595,
 94.9367088607595: G4/94.9367088607595 + C4/94.9367088607595 + D5-94.9367088607595,
 94.9367088607595: C5-94.9367088607595,
@@ -176,10 +230,11 @@ const loseTune = tune`
 153.0612244897959: D4~153.0612244897959,
 153.0612244897959: C4^153.0612244897959,
 3520.408163265306`
+const introColor = color`5`
 let currentmap = 1
 let vainterval
 
-const playback = playTune(backgroundTune, Infinity)
+let playback = playTune(backgroundTune, Infinity)
 
 setLegend(
   [player, bitmap`
@@ -323,6 +378,10 @@ uuuuuuuuuuu`,
   level4,
   level5,
   level6,
+  level7,
+  level8,
+  level9,
+  level10,
 ]
 
 setMap(levels[1])
@@ -339,15 +398,19 @@ let turner = 0
 let movinterval = 200
 let FirstInput = 0
 let finished = 0
+let automover;
 
 let levtext
+let LostTxt
 
 function checkPlayerCollision(obj) {
-  if (getFirst(player).x == getFirst(obj).x && getFirst(player).y == (getFirst(obj).y + 1)) {
-    return 1;
-  } else {
-    return 0;
+  let obstacles = getAll(obj);
+  for (let obstacleSprite of obstacles) {
+    if (getFirst(player).x === obstacleSprite.x && getFirst(player).y === (obstacleSprite.y+1)) {
+      return 1;
+    }
   }
+  return 0;
 }
 function changeLevel(levelnum){
   
@@ -355,16 +418,23 @@ function changeLevel(levelnum){
   ycon = 0
   movcon =1
   turner =0
-  if(finished == 1){currentmap = 1}
+  if(finished == 1||finished == 2){
+    currentmap = 1
+    movinterval = 200
+    playback = playTune(backgroundTune, Infinity)
+  }
   else {currentmap += 1}
-  if(levelnum == 5 || levelnum == 6) {
-    movinterval = 80
+  if(levelnum >= 5) {
+    movinterval = 90
   }
   vainterval = setInterval(mainfunc,movinterval)
   clearText(levtext)
   levtext = addText(("Lvl: " + currentmap), options = { x:0, y:0, color:color`9` })
-  
-  
+}
+
+function handleLost(){
+  LostTxt = addText("You Lost :(\n\nPress any key\nto go to the\nfirst level", options = { x:4, y:5, color:introColor })
+  finished = 2
 }
 
 
@@ -379,21 +449,25 @@ function mainfunc(){
         clearInterval(vainterval)
         playback.end()
         playTune(loseTune)
+        handleLost()
       } else if (getFirst(player).y == 1) {
         console.log("nah you missed")
         clearInterval(vainterval)
         playback.end()
         playTune(loseTune)
+        handleLost()
       }
       if (checkPlayerCollision(goal_u) == 1 || checkPlayerCollision(goal_l) == 1 || checkPlayerCollision(goal_r) == 1) {
         console.log("GOOOOOOAAAALL");
-        playTune(goalTune)
         clearInterval(vainterval)
-        if(currentmap==6){
-          finishTxt = addText("Game Finished\n\nPress any key\nto go to the\nfirst level", options = { x:4, y:5, color:color`9` })
+        if(currentmap==10){
+          finishTxt = addText("Game Finished\n\nPress any key\nto go to the\nfirst level", options = { x:4, y:5, color:introColor })
           finished =1
+          playback.end()
+          playTune(winningTune)
         }else{
           changeLevel(currentmap + 1)
+          playTune(goalTune)
         }
         
       }
@@ -401,16 +475,16 @@ function mainfunc(){
 }
 
 
-introText = addText("Welcome to \n Score It\n\nThere are\n6 Levels\n\nPress any key\nto continue", options = { x:5, y:4, color:color`9` })
+introText = addText("Welcome to \n Score It\n\nThere are\n10 Levels\n\nPress any key\nto continue", options = { x:5, y:4, color:introColor })
 
 function mover() { getFirst(player).y -= 1*ycon; }
-let initmover;
+
 
 onInput("w", () => {
   if(FirstInput == 1){
-    ycon = 1
     movcon = 0
-    const automover = setInterval(mover, 100)}
+    ycon = 1
+    if(!automover){automover = setInterval(mover, 80)}}
 })
 
 
@@ -424,8 +498,18 @@ afterInput(() => {
   }
   if(finished == 1){
     clearText(finishTxt)
+    clearInterval(automover)
+    automover = undefined
     changeLevel(1)
     finished =0
+  }
+  if(finished == 2){
+    clearText(LostTxt)
+    clearInterval(automover)
+    automover = undefined
+    changeLevel(1)
+    finished =0
+    
   }
   }
 
