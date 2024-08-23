@@ -6,6 +6,9 @@
 
 This repo is for a finished Sprig game named "Score it"
 
+Link to the game: https://sprig.hackclub.com/share/cFrxynnme2FZ4H4m2LzG
+
+
 It is a simple goal scoring game with 6 levels (as of now). Each level is harder than the previous one.
 
 Below are screenshots of work.
